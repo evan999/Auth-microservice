@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       res.status(401).json({
         errors: {
           msg:
-            existingUser.rows[0].email == email
+            existingUser.rows[0].email === email
               ? 'Email already registered. Please login'
               : 'Username taken',
         },

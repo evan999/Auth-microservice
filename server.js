@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/users', users);
-//app.use('/api/profile', profiles);
+app.use('/api/profiles', profiles);
 
 const port = process.env.PORT || 6010;
 
