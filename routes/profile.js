@@ -40,14 +40,12 @@ router.post('/', auth, async (req, res) => {
 // @desc  Get profile data of the logged in user
 // @access Private
 
-router.get('/self', auth, async (req, res) => {
+router.get('/self/', auth, async (req, res) => {
   try {
-    const { first_name, last_name, avatar, github, cohort } = req.body;
+    //const aid = req.user.id;
     let userProfile = await pool.query(
-      'SELECT aid FROM profile where aid=$1',
-      //'SELECT aid, first_name, last_name, avatar, github, cohort FROM ///profile WHERE aid=$1 AND first_name=$2 AND last_name=$3 AND //avatar=$4 AND github=$5 AND cohort=$6',
-      [req.user.id]//
-      // , first_name, last_name, avatar, github, cohort]
+      'SELECT first_name, last_name, avatar, github, cohort FROM profile where aid=$1',
+      [req.user.id]
     );
 
     //console.log(first_name);
